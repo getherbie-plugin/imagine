@@ -46,3 +46,7 @@ einsetzen kann.
 
     <img src="{{ 'mein-bild.jpg'|imagine('resize') }}" alt="" />
     <img src="{{ 'mein-bild.jpg'|imagine('crop') }}" alt="" />
+
+## Demo
+
+<http://getherbie.org/dokumentation/plugins/imagine>
