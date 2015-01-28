@@ -86,19 +86,19 @@ class ImagineExtension extends \Twig_Extension
 
         $htmlAttributes = [];
 
-        if(!empty($attributes)) {
+        if (!empty($attributes)) {
             $htmlAttributes = $attributes;
         }
 
         $htmlAttributes['alt'] = $alt;
 
-        if(!empty($class)) {
+        if (!empty($class)) {
             $htmlAttributes['class'] = $class;
         }
-        if(!empty($title)) {
+        if (!empty($title)) {
             $htmlAttributes['title'] = $title;
         }
-        if($width > 0 && $height > 0) {
+        if ($width > 0 && $height > 0) {
             $htmlAttributes['width'] = $width;
             $htmlAttributes['height'] = $height;
         } else {
@@ -146,7 +146,7 @@ class ImagineExtension extends \Twig_Extension
      */
     protected function applyFilter($path, $filter, $media)
     {
-        if($media == 1) {
+        if ($media == 1) {
             $path = 'media/' . $path;
         }
 
@@ -408,7 +408,6 @@ class ImagineExtension extends \Twig_Extension
         $origHeight = $size->getHeight();
 
         if ($origWidth < $width || $origHeight < $height) {
-
             $widthRatio = $width / $origWidth;
             $heightRatio = $height / $origHeight;
 
@@ -448,5 +447,4 @@ class ImagineExtension extends \Twig_Extension
         }
         return rtrim($attributes);
     }
-
 }

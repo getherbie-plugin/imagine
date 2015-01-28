@@ -21,5 +21,4 @@ class ImaginePlugin extends Herbie\Plugin
     {
         $event['twig']->addExtension(new ImagineExtension($event['app']));
     }
-
 }
