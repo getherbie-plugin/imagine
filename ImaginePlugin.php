@@ -19,6 +19,8 @@ class ImaginePlugin extends Herbie\Plugin
 
     public function onTwigInitialized(Herbie\Event $event)
     {
-        $event['twig']->addExtension(new ImagineExtension($event['app']));
+        $config = $this->getService('Config');
+        $basePath = $this->getService('Request')->getBasePath();
+        $event['twig']->addExtension(new ImagineExtension($config, $basePath));
     }
 }

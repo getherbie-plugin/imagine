@@ -23,9 +23,9 @@ class ImagineExtension extends \Twig_Extension
 {
 
     /**
-     * @var Application
+     * @var Config
      */
-    protected $app;
+    protected $config;
 
     /**
      * @var string
@@ -38,13 +38,14 @@ class ImagineExtension extends \Twig_Extension
     protected $cachePath = 'cache';
 
     /**
-     * @param Application $app
+     * @param Config $config
+     * @param string $basePath
      */
-    public function __construct($app)
+    public function __construct($config, $basePath)
     {
-        $this->app = $app;
-        $this->basePath = $app['request']->getBasePath() . '/';
-        $this->cachePath = $app['config']->get('imagine.cachePath', 'cache');
+        $this->config = $config;
+        $this->basePath = rtrim($basePath, '/') . '/';
+        $this->cachePath = $config->get('imagine.cachePath', 'cache');
     }
 
     /**
@@ -150,7 +151,7 @@ class ImagineExtension extends \Twig_Extension
             $path = 'media/' . $path;
         }
 
-        if ($this->app['config']->isEmpty("plugins.config.imagine.filter_sets.{$filter}")) {
+        if ($this->config->isEmpty("plugins.config.imagine.filter_sets.{$filter}")) {
             return $path;
         }
 
@@ -159,7 +160,7 @@ class ImagineExtension extends \Twig_Extension
             return $path;
         }
 
-        $filterConfig = $this->app['config']->get("plugins.config.imagine.filter_sets.{$filter}");
+        $filterConfig = $this->config->get("plugins.config.imagine.filter_sets.{$filter}");
         $cachePath = $this->resolveCachePath($path, $filter);
 
         if (!empty($filterConfig['test'])) {
