@@ -32,13 +32,16 @@ class ImaginePlugin extends Herbie\Plugin
         return $events;
     }
 
-    public function onTwigInitialized($twig)
+    public function init()
     {
         // Add custom namespace path to Imagine lib
         $vendorDir = $this->getService('Config')->get('site.path') . '/../vendor';
         $autoload = require($vendorDir . '/autoload.php');
         $autoload->add('Imagine', __DIR__ . '/vendor/lib');
+    }
 
+    public function onTwigInitialized($twig)
+    {
         $config = $this->getService('Config');
         $basePath = $this->getService('Request')->getBasePath();
         $twig->addExtension(new ImagineExtension($config, $basePath));
