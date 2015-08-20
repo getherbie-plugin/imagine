@@ -1,0 +1,2 @@
+shortcode: true             # enable shortcode
+twig: false                 # enable twig function
