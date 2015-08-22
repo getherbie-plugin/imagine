@@ -42,9 +42,9 @@ Mit der obigen Konfiguration stehen dir nun zwei Imagine-Filter *resize* und *cr
 Seiteninhalten auf Bilder anwenden kannst.
 
 
-    [[imagine mein-bild.jpg filter="resize"]]
+    [imagine mein-bild.jpg filter="resize"]
     
-    [[imagine mein-bild.jpg filter="crop"]]
+    [imagine mein-bild.jpg filter="crop"]
 
 
 ## Parameter    
