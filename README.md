@@ -63,4 +63,4 @@ Seiteninhalten auf Bilder anwenden kannst.
 
 ## Demo
 
-<http://getherbie.org/dokumentation/plugins/imagine>
+<http://www.getherbie.org/dokumentation/plugins/imagine>
