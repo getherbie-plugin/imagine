@@ -3,8 +3,9 @@
 `Imagine` ist ein [Herbie](http://github.com/getherbie/herbie) Plugin, das die gleichnamige OOP-Library zur 
 Bildbearbeitung [Imagine](https://imagine.readthedocs.org) in deine Website einbindet.
 
-Damit kannst du mit einem einfachen Shortcode an einem vorliegenden Bild umfangreiche und komplexe Bildmanipulationen
-vornehmen.
+Dank Imagine können Bilder direkt bearbeitet und mit vorgefertigten Filtern und Effekten versehen werden. Imagine 
+ist eine objektorientierte Bibliothek zur Bildmanipulation, die auf einem durchdachten Design aufbaut und dabei die 
+aktuellsten Best-Practices nutzt. 
 
 
 ## Installation
@@ -22,29 +23,63 @@ Danach aktivierst du das Plugin in der Konfigurationsdatei.
 
 ## Konfiguration
 
-In der Konfigurationsdatei definierst du die gewünschten Filter.
+Unter `plugins.config.imagine` stehen dir die folgenden Optionen zur Verfügung:
 
-    # plugins.config.imagine
+    # template path to twig template
+    template: @plugin/disqus/templates/disqus.twig
+
+    # enable shortcode
+    shortcode: true
+
+    # enable twig function and filter    
+    twig: false
+    
+    # filter set definition
+    filter_sets: 
+       ...
+        
+        
+## Filter konfigurieren
+
+Um Imagine in Herbie nutzen zu können, muss für jedes Projekt die Konfiguration angepasst werden. Dabei können ein 
+oder mehrere Filtersätze mit je einem oder mehreren Filtern definiert werden. Im folgenden Konfigurations-Beispiel 
+haben wir zwei einfache Filter zum Skalieren und Ausschneiden eines Bildes erstellt.
+        
+    # define filter sets for use in shortcode
     filter_sets:
-        resize:                         # filter set: resize
+    
+        # define resize filter
+        resize:                         
             filters:
                 thumbnail:
                     size: [280, 280]
                     mode: inset
-        crop:                           # filter set: crop
+                    
+        # define drop filter                    
+        crop:
             filters:
                 crop:
                     start: [0, 0]
                     size: [560, 560]
 
-
-Mit der obigen Konfiguration stehen dir nun zwei Imagine-Filter *resize* und *crop* zur Verfügung, die du in deinen 
+Mit dieser Konfiguration stehen dir zwei Imagine-Filter `resize` und `crop` zur Verfügung, die du in deinen 
 Seiteninhalten auf Bilder anwenden kannst.
 
+Mit dem folgenden Code wird ein Bild auf eine maximale Grösse von 280 x 280 Pixel skaliert:
 
     [imagine mein-bild.jpg filter="resize"]
     
+Und mit dem folgenden Code ein Bild mit der Grösse 560 x 560 Pixel ausgeschnitten:
+    
     [imagine mein-bild.jpg filter="crop"]
+    
+Mit dem Aktivieren von Twig kannst du Imagine sowohl als Funkion als auch Filter in deinen Layoutateien nutzen:
+
+    # Twig-Funktion
+    {{ imagine(path="mein-bild.jpg", filter="bsp1") }}
+
+    # Twig-Filter
+    {{ "mein-bild.jpg" | imagine("bsp1") }}    
 
 
 ## Parameter    
