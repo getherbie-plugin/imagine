@@ -53,7 +53,9 @@ class ImagineExtension extends \Twig_Extension
      */
     public function getFilters()
     {
-        return ['imagine' => new \Twig_Filter_Method($this, 'imagineFilter')];
+        return [
+            new \Twig_SimpleFilter('imagine', [$this, 'imagineFilter'], ['is_safe' => ['html']])
+        ];
     }
 
     /**
