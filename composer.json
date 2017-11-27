@@ -1,6 +1,6 @@
 {
     "name": "getherbie/plugin-imagine",
-    "homepage": "http://www.getherbie.org",
+    "homepage": "https://www.getherbie.org",
     "description": "Imagine Plugin for Herbie.",
     "keywords": ["herbie", "plugin", "imagine"],    
     "type": "herbie-plugin",
