@@ -98,4 +98,4 @@ Mit dem Aktivieren von Twig kannst du Imagine sowohl als Funkion als auch Filter
 
 ## Demo
 
-<https://www.getherbie.org/dokumentation/plugins/imagine>
+<https://herbie.tebe.ch/dokumentation/plugins/imagine>
