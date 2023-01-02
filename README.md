@@ -1,3 +1,9 @@
+**Note: Since version 2.x this plugin is part of Herbie, see <https://github.com/getherbie/herbie/tree/2.x/plugins/imagine>.**
+
+---
+
+https://github.com/getherbie/herbie/tree/2.x/plugins/imagine
+
 # Herbie Imagine Plugin
 
 `Imagine` ist ein [Herbie](http://github.com/getherbie/herbie) Plugin, das die gleichnamige OOP-Library zur 
